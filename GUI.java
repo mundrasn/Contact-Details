@@ -1,9 +1,9 @@
 import ecs100.*;
 /**
- * Write a description of class GUI here.
+ * Adding buttons to the interface
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author Snigdha Mundra
+ * @version 11/06/2021
  */
 public class GUI
 {
@@ -21,8 +21,9 @@ public class GUI
         UI.addButton("Add Contact", ct::addContact);
         
         UI.addTextField("Search", ct::findNumber);
+        UI.setMouseListener(ct::doClick);
         
-        UI.addButton("Clear", UI::clearGraphics);
+        UI.addButton("Clear", UI::clearPanes); 
         UI.addButton("Quit", UI::quit);
     }
 }
