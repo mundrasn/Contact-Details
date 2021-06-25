@@ -1,5 +1,5 @@
-import java.util.HashMap;
-import ecs100.*;
+    import java.util.HashMap;
+    import ecs100.*;
 import java.awt.Color;
 /**
  * Holds all of the contacts in a HashMap
@@ -22,7 +22,7 @@ public class Contacts
         // initialise instance variables
         contactDetails = new HashMap<Integer, Person>();
         
-        // Creating Books
+            // Creating Books
         Person p1 = new Person("Snigdha Mundra", 220436378);
         Person p2 = new Person("Annika Munro", 21940311);
         Person p3 = new Person("Peta Symons", 210276378);
@@ -69,16 +69,15 @@ public class Contacts
     /**
      * Lets user add a contact
      */
-    public void addContact() {
-        //Ask the user for details
-        String name = UI.askString("Enter Full Name: ");
-        int phoneNum = UI.askInt("Enter Ph Number: ");  /*# ff*/
-        
-        String imgFileName = UIFileChooser.open("Choose Image File: ");
-        
-        // Increment the contact ID counter and add the new contact to hashmap
-        currContactId++;
-        contactDetails.put(currContactId, new Person(name, phoneNum));
+    public void addContact(String name, int phoneNum, String imgFileName) {
+        contactDetails.put(currContactId, new Person(name, phoneNum, imgFileName));
+    }
+    
+    /**
+     * Increments contact Id
+     */
+    public void incrementId(int incrementer){
+        this.currContactId = this.currContactId + incrementer;
     }
     
     /**
@@ -103,6 +102,9 @@ public class Contacts
         }
     }
     
+    
+    
+    
     /**
      * Hides Contact Details
      */
@@ -122,7 +124,6 @@ public class Contacts
      * 
      */
     public boolean doClick(String action, double x, double y) {
-        
         if (action.equals("clicked")) {
             //check the location of mouse against location of icon
             if ((x >= contactDetails.get(iconId).getX()) &&
